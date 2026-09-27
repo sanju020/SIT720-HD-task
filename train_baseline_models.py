@@ -31,12 +31,13 @@ from catboost import CatBoostClassifier
 
 warnings.filterwarnings("ignore")
 
-DATASET_DIR = Path(r"C:\Users\sanju\Downloads\ptb-xl")
+DATASET_DIR = Path(__file__).resolve().parent
 
 INPUT_FILE = DATASET_DIR / "dasmmc_model_data.csv"
 RESULTS_FILE = DATASET_DIR / "baseline_results.csv"
 
 RANDOM_STATE = 42
+RUN_10_FOLD_CV = False
 
 
 # ---------------------------------------------------------
@@ -106,6 +107,16 @@ print(y_train.value_counts().sort_index())
 # ---------------------------------------------------------
 
 models = {
+
+    "KNN": KNeighborsClassifier(
+        n_neighbors=5
+    ),
+
+    "Random Forest": RandomForestClassifier(
+        n_estimators=200,
+        random_state=RANDOM_STATE,
+        n_jobs=-1
+    ),
 
     "XGBoost": XGBClassifier(
         n_estimators=200,
@@ -347,96 +358,89 @@ print("\n====================================")
 print("10-FOLD CROSS-VALIDATION")
 print("====================================")
 
-cv = StratifiedKFold(
-    n_splits=10,
-    shuffle=True,
-    random_state=RANDOM_STATE
-)
+if RUN_10_FOLD_CV:
 
-cv_results = []
+    print("\n====================================")
+    print("10-FOLD CROSS-VALIDATION")
+    print("====================================")
 
-for name, model in models.items():
-
-    print("\nCross-validating:", name)
-
-    pipeline = Pipeline(
-        steps=[
-            ("scaler", StandardScaler()),
-            (
-                "smote",
-                SMOTE(
-                    random_state=RANDOM_STATE
-                )
-            ),
-            ("model", model)
-        ]
+    cv = StratifiedKFold(
+        n_splits=10,
+        shuffle=True,
+        random_state=RANDOM_STATE
     )
 
-    scoring = {
-        "accuracy": "accuracy",
-        "precision": "precision_weighted",
-        "recall": "recall_weighted",
-        "f1": "f1_weighted",
-        "auc": "roc_auc_ovr_weighted"
-    }
+    cv_results = []
 
-    scores = cross_validate(
-        pipeline,
-        X,
-        y_encoded,
-        cv=cv,
-        scoring=scoring,
-        n_jobs=1
+    for name, model in models.items():
+
+        print("\nCross-validating:", name)
+
+        pipeline = Pipeline(
+            steps=[
+                ("scaler", StandardScaler()),
+                (
+                    "smote",
+                    SMOTE(
+                        random_state=RANDOM_STATE
+                    )
+                ),
+                ("model", model)
+            ]
+        )
+
+        scoring = {
+            "accuracy": "accuracy",
+            "precision": "precision_weighted",
+            "recall": "recall_weighted",
+            "f1": "f1_weighted",
+            "auc": "roc_auc_ovr_weighted"
+        }
+
+        scores = cross_validate(
+            pipeline,
+            X,
+            y_encoded,
+            cv=cv,
+            scoring=scoring,
+            n_jobs=1
+        )
+
+        cv_row = {
+            "Model": name,
+            "CV Accuracy":
+                scores["test_accuracy"].mean(),
+            "CV Precision":
+                scores["test_precision"].mean(),
+            "CV Recall":
+                scores["test_recall"].mean(),
+            "CV F1":
+                scores["test_f1"].mean(),
+            "CV AUC":
+                scores["test_auc"].mean()
+        }
+
+        cv_results.append(cv_row)
+
+        print(cv_row)
+
+    cv_df = pd.DataFrame(cv_results)
+
+    cv_path = (
+        DATASET_DIR /
+        "baseline_cv_results.csv"
     )
 
-    cv_row = {
-        "Model": name,
-        "CV Accuracy":
-            scores[
-                "test_accuracy"
-            ].mean(),
-
-        "CV Precision":
-            scores[
-                "test_precision"
-            ].mean(),
-
-        "CV Recall":
-            scores[
-                "test_recall"
-            ].mean(),
-
-        "CV F1":
-            scores[
-                "test_f1"
-            ].mean(),
-
-        "CV AUC":
-            scores[
-                "test_auc"
-            ].mean()
-    }
-
-    cv_results.append(
-        cv_row
+    cv_df.to_csv(
+        cv_path,
+        index=False
     )
 
-    print(cv_row)
+    print("\nSaved CV results:")
+    print(cv_path)
 
-
-cv_df = pd.DataFrame(
-    cv_results
-)
-
-cv_path = (
-    DATASET_DIR /
-    "baseline_cv_results.csv"
-)
-
-cv_df.to_csv(
-    cv_path,
-    index=False
-)
-
-print("\nSaved CV results:")
-print(cv_path)
+else:
+    print(
+        "\n10-fold cross-validation skipped. "
+        "Set RUN_10_FOLD_CV = True to run it."
+    )
