@@ -1,0 +1,78 @@
+ecg_id,diagnostic_class,filename_lr,error
+517,CD,records100/00000/00517_lr,cannot convert float NaN to integer
+798,CD,records100/00000/00798_lr,cannot convert float NaN to integer
+1159,MI,records100/01000/01159_lr,No complete valid beats found.
+1233,STTC,records100/01000/01233_lr,No complete valid beats found.
+1919,STTC,records100/01000/01919_lr,No complete valid beats found.
+1930,STTC,records100/01000/01930_lr,No complete valid beats found.
+1986,CD,records100/01000/01986_lr,No complete valid beats found.
+2792,MI,records100/02000/02792_lr,No complete valid beats found.
+3267,STTC,records100/03000/03267_lr,No complete valid beats found.
+3306,STTC,records100/03000/03306_lr,No complete valid beats found.
+3455,CD,records100/03000/03455_lr,No complete valid beats found.
+4588,MI,records100/04000/04588_lr,No complete valid beats found.
+4700,STTC,records100/04000/04700_lr,No complete valid beats found.
+4745,STTC,records100/04000/04745_lr,No complete valid beats found.
+5012,MI,records100/05000/05012_lr,No complete valid beats found.
+5042,CD,records100/05000/05042_lr,No complete valid beats found.
+5728,STTC,records100/05000/05728_lr,No complete valid beats found.
+6240,CD,records100/06000/06240_lr,No complete valid beats found.
+6517,CD,records100/06000/06517_lr,No complete valid beats found.
+6678,CD,records100/06000/06678_lr,No complete valid beats found.
+6911,NORM,records100/06000/06911_lr,No complete valid beats found.
+7073,CD,records100/07000/07073_lr,No complete valid beats found.
+7713,CD,records100/07000/07713_lr,No complete valid beats found.
+7960,CD,records100/07000/07960_lr,No complete valid beats found.
+8683,MI,records100/08000/08683_lr,No complete valid beats found.
+8714,CD,records100/08000/08714_lr,cannot convert float NaN to integer
+8913,MI,records100/08000/08913_lr,No complete valid beats found.
+8957,CD,records100/08000/08957_lr,No complete valid beats found.
+9823,CD,records100/09000/09823_lr,No complete valid beats found.
+10065,STTC,records100/10000/10065_lr,No complete valid beats found.
+10160,STTC,records100/10000/10160_lr,No complete valid beats found.
+10306,CD,records100/10000/10306_lr,No complete valid beats found.
+11218,CD,records100/11000/11218_lr,No complete valid beats found.
+11269,CD,records100/11000/11269_lr,No complete valid beats found.
+11288,CD,records100/11000/11288_lr,No complete valid beats found.
+11830,CD,records100/11000/11830_lr,No complete valid beats found.
+11889,CD,records100/11000/11889_lr,No complete valid beats found.
+12217,MI,records100/12000/12217_lr,cannot convert float NaN to integer
+12950,CD,records100/12000/12950_lr,No complete valid beats found.
+13106,STTC,records100/13000/13106_lr,No complete valid beats found.
+13261,CD,records100/13000/13261_lr,No complete valid beats found.
+13277,CD,records100/13000/13277_lr,No complete valid beats found.
+13585,MI,records100/13000/13585_lr,Less than two R peaks detected.
+13820,CD,records100/13000/13820_lr,cannot convert float NaN to integer
+13838,STTC,records100/13000/13838_lr,No complete valid beats found.
+14070,STTC,records100/14000/14070_lr,No complete valid beats found.
+14102,STTC,records100/14000/14102_lr,No complete valid beats found.
+14314,MI,records100/14000/14314_lr,cannot convert float NaN to integer
+16096,CD,records100/16000/16096_lr,No complete valid beats found.
+16309,NORM,records100/16000/16309_lr,No complete valid beats found.
+16311,MI,records100/16000/16311_lr,No complete valid beats found.
+16347,CD,records100/16000/16347_lr,No complete valid beats found.
+16430,CD,records100/16000/16430_lr,No complete valid beats found.
+16639,CD,records100/16000/16639_lr,Less than two R peaks detected.
+16657,CD,records100/16000/16657_lr,Less than two R peaks detected.
+16700,CD,records100/16000/16700_lr,Less than two R peaks detected.
+16985,CD,records100/16000/16985_lr,No complete valid beats found.
+17308,CD,records100/17000/17308_lr,No complete valid beats found.
+17501,MI,records100/17000/17501_lr,No complete valid beats found.
+17531,STTC,records100/17000/17531_lr,No complete valid beats found.
+18916,CD,records100/18000/18916_lr,No complete valid beats found.
+19202,CD,records100/19000/19202_lr,cannot convert float NaN to integer
+19305,CD,records100/19000/19305_lr,No complete valid beats found.
+19316,MI,records100/19000/19316_lr,No complete valid beats found.
+19382,MI,records100/19000/19382_lr,cannot convert float NaN to integer
+19403,CD,records100/19000/19403_lr,No complete valid beats found.
+19519,CD,records100/19000/19519_lr,No complete valid beats found.
+19678,MI,records100/19000/19678_lr,No complete valid beats found.
+19742,CD,records100/19000/19742_lr,No complete valid beats found.
+19976,CD,records100/19000/19976_lr,No complete valid beats found.
+20711,MI,records100/20000/20711_lr,cannot convert float NaN to integer
+20874,CD,records100/20000/20874_lr,Less than two R peaks detected.
+20877,CD,records100/20000/20877_lr,cannot convert float NaN to integer
+20966,CD,records100/20000/20966_lr,No complete valid beats found.
+21347,CD,records100/21000/21347_lr,No complete valid beats found.
+21380,CD,records100/21000/21380_lr,No complete valid beats found.
+21486,MI,records100/21000/21486_lr,Less than two R peaks detected.

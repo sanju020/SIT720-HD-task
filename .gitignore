@@ -1,0 +1,42 @@
+# Full PTB-XL ECG dataset - do not upload
+records100/
+records500/
+
+# Large/raw model data
+*.dat
+*.hea
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Saved trained models
+*.joblib
+*.pkl
+
+# Checkpoint files
+dasmmc_beat_features_checkpoint.csv
+
+# Optional: exclude very large generated feature files
+dasmmc_beat_features_full.csv
+
+# Generated / large intermediate datasets
+dasmmc_model_data.csv
+dasmmc_12lead_pilot.csv
+dasmmc_beat_features_test.csv
+dasmmc_features_test.csv
+part2_robust_features.csv
+
+# CatBoost temporary files
+catboost_info/
+
+# Saved models
+*.joblib
+*.pkl
+
+# Python cache
+__pycache__/
+*.pyc
